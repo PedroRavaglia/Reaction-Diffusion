@@ -178,7 +178,7 @@ var nextGridState = app.createFramebuffer();
 nextGridState.colorTarget(0, nextGridState_tex);
 
 var FK = [[0.055, 0.062], [0.0367, 0.0649], [0.0545, 0.062]];
-var FK_options = ['Standart', 'Mitosis', 'Coral Growth'];
+var FK_options = ['Standard', 'Mitosis', 'Coral Growth'];
 
 let settings = {
     feed: 0.055,
@@ -190,22 +190,22 @@ let settings = {
 }
 
 webglLessonsUI.setupUI(document.querySelector('#ui'), settings, [
-    {type: 'slider', key: 'feed', name: 'Feed', min: 0.0,    max: 0.1, step: 0.001, slide: (event, ui) => {
+    {type: 'slider', key: 'feed', name: 'Feed', min: 0.0, max: 0.1, step: 0.001, precision: 3, slide: (event, ui) => {
         settings.feed = ui.value;
     }},
-    {type: 'slider', key: 'kill', name: 'Kill', min: 0.0,    max: 0.1, step: 0.001, slide: (event, ui) => {
+    {type: 'slider', key: 'kill', name: 'Kill', min: 0.0, max: 0.1, step: 0.001, precision: 3, slide: (event, ui) => {
         settings.kill = ui.value;
     }},
-    {type: 'slider', key: 'D_a', name: 'Diffusion Rate A', min: 0.0,    max: 1.0, step: 0.001, slide: (event, ui) => {
+    {type: 'slider', key: 'D_a', name: 'Diffusion Rate A', min: 0.0, max: 1.0, step: 0.001, precision: 3, slide: (event, ui) => {
         settings.D_a = ui.value;
     }},
-    {type: 'slider', key: 'D_b', name: 'Diffusion Rate B', min: 0.0,    max: 1.0, step: 0.01, slide: (event, ui) => {
+    {type: 'slider', key: 'D_b', name: 'Diffusion Rate B', min: 0.0, max: 1.0, step: 0.01, precision: 2, slide: (event, ui) => {
         settings.D_b = ui.value;
     }},
-    {type: 'slider', key: 'radius', name: 'Radius', min: 0.0,    max: 20.0, step: 0.01, slide: (event, ui) => {
+    {type: 'slider', key: 'radius', name: 'Radius', min: 0.0, max: 20.0, step: 0.01, precision: 2, slide: (event, ui) => {
         settings.radius = ui.value;
     }},
-    {type: 'option', key: 'FK_index', name: 'Patterns',   options: FK_options,    change: (event, ui) => {
+    {type: 'option', key: 'FK_index', name: 'Patterns', options: FK_options, change: (event, ui) => {
         settings.feed = FK[settings.FK_index][0];
         settings.kill = FK[settings.FK_index][1];
     }}
